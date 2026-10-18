@@ -1,3 +1,5 @@
+package StringBuilder;
+
 public class StrPalindromeStringBuilder {
     public static void main(String[] args) {
         String num = "Malayalam";
