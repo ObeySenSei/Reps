@@ -28,3 +28,15 @@ public class MaxSubarraySum {
         return maxSum;
     }
 }
+
+/*
+
+If an array contains only negative numbers (e.g., {-3, -1, -5}), initializing maxSum to 0 would incorrectly
+return 0 (which implies an empty subarray). To handle this correctly:Initialize maxSum = arr[0] (the first element).
+This ensures that even if all numbers are negative, the algorithm will return the single largest (least negative)
+element instead of 0.
+
+To integrate the subarray printing feature directly into your exact code structure, you just need to add tracking variables
+(bestStart and bestEnd) inside your findMax method, update them whenever maxSum updates, and print them out before returning.
+
+ */
