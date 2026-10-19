@@ -20,7 +20,7 @@ public class SecondLargestElementOptimized {
                 largest = arr[i];                      // then update 12 to 19
                 foundSecond = true;                 // foundSecond = true....We now have a valid second-largest candidate
 
-            } else if (arr[i] < largest && (!foundSecond || arr[i] > secondLargest)){     // if 14 > 12 , then secondLargest is 14.
+            } else if (arr[i] < largest && ( !foundSecond || arr[i] > secondLargest)){     // if 14 > 12 , then secondLargest is 14.
                 secondLargest = arr[i];
                 foundSecond = true;
             }
