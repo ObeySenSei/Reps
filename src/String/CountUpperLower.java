@@ -11,7 +11,7 @@ public class CountUpperLower {
         int countLower = 0;
 
         for (int i=0; i<str.length(); i++){
-            char ch =str.charAt(i);
+            char ch = str.charAt(i);
             if (ch >= 'A' && ch <='Z'){
                 countUpper++;
             } else if (ch >= 'a' && ch<= 'z'){
