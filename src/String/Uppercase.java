@@ -2,7 +2,7 @@ package String;
 
 public class Uppercase {
     public static void main(String[] args) {
-        String str = "hello";
+        String str = "HELLO";
         System.out.println(toUpperCase(str));
     }
     static String toUpperCase (String str){
@@ -12,8 +12,8 @@ public class Uppercase {
         for (int i=0; i<str.length(); i++) {
             char ch = str.charAt(i);
 
-            if (ch >= 'a' && ch <= 'z'){
-                ch = (char) (ch - 32);           // double two brackets
+            if (ch >= 'A' && ch <= 'Z'){
+                ch = (char) (ch + 32);           // double two brackets    (ch - 32)  for lower -> uppercase
             }
             str2 = str2 + ch;
         }
@@ -42,5 +42,7 @@ static String toUpperCase(String str) {
 
     return str2;
 
-
+There are two different operations here:
+1. (ch - 32) calculates the integer result of the subtraction.
+2. (char) casts that integer back to a character.
  */
