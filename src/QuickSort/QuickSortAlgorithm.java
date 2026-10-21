@@ -1,4 +1,5 @@
 package QuickSort;
+// https://youtu.be/Vtckgz38QHs
 import java.util.Arrays;
 public class QuickSortAlgorithm {
 
@@ -14,10 +15,10 @@ public class QuickSortAlgorithm {
 
     static void quickSort(int[] arr, int start, int end) {
         if (start < end) {
-            int pi = partition(arr, start, end);
+            int pi = partition(arr, start, end);      // Why pi - 1 and pi + 1 matter:Because index pi is already permanently sorted, we never want to touch it or include it in future sorting steps again.
 
-            quickSort(arr, start, pi - 1);       // quickSort(arr, 0, -1).....start < end (0 < -1) is False   (0 - 1 = -1)
-            quickSort(arr, pi + 1, end);        // quickSort(arr, 1, 3)....start < end (1 < 3) is True. It runs partition on the sub-array [2, 7, 4].
+            quickSort(arr, start, pi - 1);       // quickSort(arr, 0, -1).....start < end (0 < -1) is False   (0 - 1 = -1)       Left sub-array: Goes from start all the way up to pi - 1 (stopping right before the sorted pivot).
+            quickSort(arr, pi + 1, end);        // quickSort(arr, 1, 3)....start < end (1 < 3) is True. It runs partition on the sub-array [2, 7, 4].           Right sub-array: Starts right after the pivot at pi + 1 and goes to end.
         }
     }
 
@@ -44,24 +45,21 @@ public class QuickSortAlgorithm {
 }
 
 /*
-Phase 1: The Main Method Startsint[] arr = {4, 2, 7, 1};We start with our unsorted array.quickSort(arr, 0, 3);
-We call the sort function for the whole array, where start = 0 and end = 3.Phase 2:
-First QuickSort Call (start = 0, end = 3)Since 0 < 3, it runs the partition function for [4, 2, 7, 1].
-Inside partition(arr, 0, 3):pivot = arr[3] = 1 (the last element).i = start - 1 = 0 - 1 = -1.
-The Loop (j goes from 0 to 2):j = 0 (arr[0] = 4): Is 4 <= 1? No ❌ (i stays -1)j = 1 (arr[1] = 2):
-Is 2 <= 1? No ❌ (i stays -1)j = 2 (arr[2] = 7): Is 7 <= 1? No ❌ (i stays -1)
-The Pivot Swap:Move i up by 1 (i + 1 = 0).Swap the pivot (1) with the element at index 0 (4).
-Array is now: [1, 2, 7, 4]Returns: pi = 0. (Pivot 1 is now locked permanently at index 0!).
-Phase 3: The Next Recursive CallsAfter the first partition, quickSort splits into two:
-Left Side: quickSort(arr, 0, -1) $\rightarrow$ start < end (0 < -1) is False.
-Does nothing (no numbers to the left of 1).Right Side: quickSort(arr, 1, 3) $\rightarrow$ start < end (1 < 3) is True.
-It runs partition on the sub-array [2, 7, 4].Phase 4: Second QuickSort Call (start = 1, end = 3)
-Inside partition(arr, 1, 3):pivot = arr[3] = 4 (the last element of this sub-array).i = start - 1 = 1 - 1 = 0.
-The Loop (j goes from 1 to 2):j = 1 (arr[1] = 2): Is 2 <= 4? Yes! ✔️i increases from 0 to 1.
-Swaps arr[1] with itself (stays 2).j = 2 (arr[2] = 7): Is 7 <= 4? No ❌ (i stays 1).
-The Pivot Swap:Move i up by 1 (i + 1 = 2).Swap the pivot (4) with the element at index 2 (7).
-Array is now: [1, 2, 4, 7]Returns: pi = 2. (Pivot 4 is now locked permanently at index 2!).
-Phase 5: Final Cleanup & CompletionQuickSort triggers two final sub-calls for the numbers around
-4:Left of 4 ([2]) $\rightarrow$ 1 element, already sorted.Right of 4 ([7]) $\rightarrow$ 1 element, already sorted.
-The recursion finishes entirely.🎉 Final Output in main:After Sorting: [1, 2, 4, 7]
+
+Remember:
+- start < end → at least two elements.
+- start == end → exactly one element.
+- start > end → zero elements.
+An array containing zero or one element is already sorted. There is no need to partition it.
+
+quickSort(arr, 0, 0); Here, start == end, so start < end is false. The function stops without making another recursive call.
+
+Why for (int j = start; j < end; j++)?
+Purpose: To examine every element except the pivot.  REMEMBER pivot is placed at end. int pivot = arr[end];
+
+The key difference
+start < end    	 quickSort()	Prevents recursion on subarrays of size zero or one.
+    j < end	     partition()	Scans elements while excluding the pivot.
+
+
  */
