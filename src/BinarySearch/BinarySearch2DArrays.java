@@ -1,6 +1,6 @@
 package BinarySearch;
 import java.util.Arrays;
-
+// unsorted array
 public class BinarySearch2DArrays {
     public static void main(String[] args) {
 
@@ -32,6 +32,7 @@ public class BinarySearch2DArrays {
 }
 
 /*
+
 
 The SetupTarget: 37Starting position:row = 0 (First row)column = 3 (Last column, since arr[0].length - 1 = 4 - 1 = 3)
 Initial Point: arr[0][3] = 40 (the top-right corner)Step-by-Step ExecutionIteration 1Current Position: arr[0][3] = 40
@@ -76,6 +77,8 @@ If there are 4 columns (total length = 4), the valid column indexes are 0, 1, 2,
 To point to the last column (the rightmost side), you need index 3.
 
 That is why we write arr[0].length - 1 (4 - 1 = 3), which correctly targets the last column.
+
+
 
  */
 
