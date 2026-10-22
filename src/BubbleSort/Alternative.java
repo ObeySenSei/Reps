@@ -21,7 +21,7 @@ public class Alternative {
                     isSorted = false;
                 }
             }
-            if (isSorted==true){
+            if (isSorted){
                 break;
            }
         }
