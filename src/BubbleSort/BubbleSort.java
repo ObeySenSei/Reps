@@ -13,7 +13,7 @@ public class BubbleSort {
         boolean isSorted;
 
         for (int i=0 ; i < arr.length; i++){
-            isSorted = true;                  // Lets assume the array is already sorted
+            isSorted = true;                  // Let's assume the array is already sorted
 
             for (int j=1; j < arr.length - i; j++){       // for each pass the MAX VALUE in that pass will come at the last index.
                 
