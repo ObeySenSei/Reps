@@ -56,8 +56,8 @@ public class MergeSort {
 
 /*
 
-so basically 4271, becomes 24,17 and then 2 is compared with 4,1,7, 1being smallers gets pushed into the
-temp integer array first, then 2, then 4, last is 7, ,so we need to find a way to be able to push 7
+so basically 4271, becomes 24,17 and then 2 is compared with 4,1,7, 1 being smaller gets pushed into the
+temp integer array first, then 2, then 4, last is 7, so we need to find a way to be able to push 7
 which is a leftover to the temp why is why while (j <= end)
 
 You hit the nail on the head regarding the leftover sweep!
