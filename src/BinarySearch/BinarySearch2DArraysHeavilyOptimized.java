@@ -113,6 +113,7 @@ and map your way back home!
 
 
  Your previous staircase search runs in O(N+M) time. If your matrix is 10001000, it might have to take up to 2000 steps.
- This monster code uses Binary Search multiple times to crush the time complexity down to O(N+M). For that same 10001000 matrix, it takes roughly 20 steps. That’s why it's so long and terrifying—it’s heavily optimized.
+ This monster code uses Binary Search multiple times to crush the time complexity down to O(N+M).
+ For that same 10001000 matrix, it takes roughly 20 steps. That’s why it's so long and terrifying — it’s heavily optimized.
 
  */
