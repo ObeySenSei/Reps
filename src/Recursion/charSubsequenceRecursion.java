@@ -1,6 +1,6 @@
 package Recursion;
 
-public class PrintSubsequenceRecursion {
+public class charSubsequenceRecursion {
     public static void main(String[] args) {
         printSubsequences("" , "abc");
         
