@@ -1,26 +1,36 @@
 package Recursion;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class test {
     public static void main(String[] args) {
-        String str = "abc";
-        List<String> result = getSubsequence(str);
-        System.out.println(result);
+        int[] arr = {1,2,3};
+        System.out.println(findSubsequence(arr));
     }
-    static List<String> getSubsequence(String str){
+    static List<List<Integer>> findSubsequence (int[] arr) {
 
-        List<String> outer = new ArrayList<>();  // declare the new list named outer
-        outer.add("");
+        List<List<Integer>> outer = new ArrayList<>();
+        outer.add(new ArrayList<>());         // start with an empty subset initially
 
-        for (int i=0; i<str.length(); i++){
-            char ch = str.charAt(i);
+        int start = 0, end = 0;
 
-            int currentSize = outer.size();
+        for (int i = 0; i < arr.length; i++) {
+            int num = arr[i];
 
-            for (int j=0; j<currentSize; j++){
-                String newCombination = (outer.get(j) + ch);
-                outer.add(newCombination);
+            if (i > 0 && arr[i] == arr[i - 1]) {
+                start = end + 1;
+            } else {
+                start = 0;
+            }
+            end = outer.size() - 1;
+            int n = outer.size();
+
+
+            for (int j = start; j < n; j++) {
+                List<Integer> inner = new ArrayList<>(outer.get(j));
+                inner.add(num);
+                outer.add(inner);
             }
         }
         return outer;
