@@ -1,4 +1,4 @@
-package Recursion;
+package Recursion.SubsetsSubsequenceStringQuestions;
 
 public class charSubsequenceRecursion {
     public static void main(String[] args) {

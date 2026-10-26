@@ -1,4 +1,4 @@
-package Recursion;
+package Recursion.SubsetsSubsequenceStringQuestions;
 
 public class RemoveStringReturnType {
     public static void main(String[] args) {
