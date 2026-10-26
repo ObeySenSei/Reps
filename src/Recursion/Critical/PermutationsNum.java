@@ -14,7 +14,7 @@ public class PermutationsNum {
     }
     public static List<List<Integer>> permute(int[] arr) {
         List<List<Integer>> result = new ArrayList<>();
-        backtrack( arr,0, result);
+        backtrack( arr,0, result);                   /// Recursive Call
         return result;
     }
 
