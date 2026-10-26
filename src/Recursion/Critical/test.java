@@ -4,21 +4,25 @@ import java.util.List;
 
 public class test {
     public static void main(String[] args) {
-        String str = "abc";
-        List<String> result = permutations (str);
-        for (String p : result){
+        int[] arr = {1, 2, 3};
+        List<List<Integer>> result = permutations(arr);
+
+        for (List<Integer> p : result) {
             System.out.println(p);
         }
     }
-    static List<String> permutations(String str){
-        List<String> result = new ArrayList<>();
-        backtrack(str.toCharArray(), 0, result);
+    static List<List<Integer>> permutations(int[] arr){
+        List<List<Integer>> result = new ArrayList<>();
+        backtrack(arr,0,result);
         return result;
     }
-    private static void backtrack (char[]arr, int pos, List<String>result ){
-
-        if (pos == arr.length){
-            result.add(new String(arr));
+    static void backtrack(int[]arr, int pos, List<List<Integer>>result){
+        if (pos==arr.length){
+            List<Integer> newCombination = new ArrayList<>();
+            for(int nums : arr){
+                newCombination.add(nums);
+            }
+            result.add(newCombination);
             return;
         }
         for (int i = pos; i<arr.length; i++){
@@ -26,11 +30,13 @@ public class test {
             backtrack(arr,pos+1,result);
             swap(arr,pos,i);
         }
+
     }
-    static void swap (char[]arr, int pos, int i){
-        char temp = arr[pos];
+    static void swap(int[]arr, int pos, int i){
+        int temp = arr[pos];
         arr[pos] = arr[i];
         arr[i] = temp;
     }
 }
+
 
