@@ -12,17 +12,17 @@ public class test {
     }
     static List<String> permutations (String str){
         List<String> result = new ArrayList<>();
-        backtrack (str.toCharArray(), 0 ,result );
+        recursion(str.toCharArray(), 0 ,result );
         return result;
     }
-    static void backtrack (char[]arr, int pos, List<String> result){
+    static void recursion(char[]arr, int pos, List<String> result){
         if (pos == arr.length){
             result.add(new String(arr));
             return;
         }
         for (int index = pos; index<arr.length; index++){
             swap (arr,0,index);
-            backtrack(arr,pos+1, result);
+            recursion(arr,pos+1, result);
             swap (arr,0,index);
         }
     }
