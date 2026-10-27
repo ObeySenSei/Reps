@@ -1,5 +1,4 @@
 package Recursion.Critical;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -41,6 +40,6 @@ public class DiceRollArrayList {
  for (int i = 1; i <= 6 && i <= target; i++) {
  list.addAll(diceRet(p + i, target - i));
 
-
+ // i <= target because You cannot roll a number larger than your remaining target
 
  */
