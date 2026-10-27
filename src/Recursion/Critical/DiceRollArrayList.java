@@ -40,6 +40,11 @@ public class DiceRollArrayList {
  for (int i = 1; i <= 6 && i <= target; i++) {
  list.addAll(diceRet(p + i, target - i));
 
- // i <= target because You cannot roll a number larger than your remaining target
+    i <= target because You cannot roll a number larger than your remaining target
+
+ You cannot roll a number larger than your remaining targetImagine your remaining target is 2,
+ and your loop tries to roll a die face of 3 (i = 3).If you subtracted that, your new target would become  i = 2 - 3 = -1
+ negative target doesn't make sense for a dice game, and it will completely miss your base case (target == 0),
+ leading to incorrect results or infinite recursion.
 
  */
