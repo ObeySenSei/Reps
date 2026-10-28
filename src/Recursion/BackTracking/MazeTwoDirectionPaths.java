@@ -37,26 +37,19 @@ public class MazeTwoDirectionPaths {
         }
 
         // 3. DO: Mark current cell as visited
-
         maze[r][c] = false;
         path[r][c] = step;
 
         // 4. EXPLORE: Only 2 directions (Down and Right)
-
-
-        // Go Down
-        if (r < maze.length - 1) {
+        if (r < maze.length - 1) {       // Go Down
             twoDirPaths(p + 'D', maze, r + 1, c, path, step + 1);
         }
 
-        // Go Right
-        if (c < maze[0].length - 1) {
+        if (c < maze[0].length - 1) {     // Go Right
             twoDirPaths(p + 'R', maze, r, c + 1, path, step + 1);
         }
 
-
         // 5. UNDO (BACKTRACK): Unmark before leaving
-
         maze[r][c] = true;
         path[r][c] = 0;
     }
