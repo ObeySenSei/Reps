@@ -48,7 +48,6 @@ public class RatInAMaze {
     }
 }
 
-
 /**
 
  If you don't unmark it: Once the first path explores that cell and marks it as true, it stays true forever.
