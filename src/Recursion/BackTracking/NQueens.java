@@ -95,4 +95,20 @@ public class NQueens {
  Once the recursive call finishes (either because it hit a dead end or successfully found a solution and returned),
  we remove the queen and put . back.
  This resets the cell so that the for loop can move on to test the next column in that row.
+
+
+
+ We chose j to represent the column because we are iterating horizontally across every single square available in the current row.
+ Think about it like this:
+ Your function is given a specific row to work on (e.g., row = 0, then later row = 1, etc.).
+ Within that single row, the only thing that changes is the column position.
+ As the loop runs, j acts as our column index, letting us test every square from left to right:
+
+ When j = 0, it checks board[row][0]
+ When j = 1, it checks board[row][1]
+ When j = 2, it checks board[row][2]
+
+ And so on, up to n - 1.
+ So j is just our way of saying: "Let's try placing the queen in column 0 of this row, and if that doesn't work,
+ let's move to column 1, then column 2, and test them one by one."
  */
