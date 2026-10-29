@@ -1,6 +1,7 @@
 package Recursion.BackTracking;
 import java.util.List;
 import java.util.ArrayList;
+// https://leetcode.com/problems/n-queens/description/
 
 public class NQueens {
     public static void main(String[] args) {
