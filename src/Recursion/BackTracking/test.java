@@ -28,11 +28,11 @@ public class test {
     static boolean isSafe (char[][] board, int row, int col, int n){
 
         for(int i=0; i<n; i++){
-            if (board[row][i] == 'Q'){       // horizontal check
-                return false;
+            if (board[row][i] == 'Q'){       ///                               Horizontal check
+                return false;                /// Notice that the loop variable i is used as the column index because it is the second parameter in board[row][i].  It keeps the current row fixed while changing the column (i).
             }
         }
-        for (int j=0; j<n; j++){
+        for (int j=0; j<n; j++){            /// It keeps the column fixed (col) while changing the row (j).  This means it scans that entire column vertically from top to bottom, checking every square to see if a queen ('Q') is already sitting there.
             if (board[j][col] == 'Q'){
                 return false;
             }
