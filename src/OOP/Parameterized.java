@@ -3,11 +3,11 @@ package OOP;
 public class Parameterized {
     public static void main(String[] args) {
 
-        Student2 s2 = new Student2 ("Abhishek", 24);
-        s2.printInfo();
-
+        Student2 s1 = new Student2 ("Abhishek", 24);
+        s1.printInfo();
     }
 }
+
 class Student2 {
     String name;
     int age;
