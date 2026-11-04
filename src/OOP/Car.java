@@ -17,7 +17,7 @@ public class Car {
         Scanner in = new Scanner(System.in);          /// Built-in java object
         Random random = new Random();
 
-        Car car = new Car();
+        Car car = new Car();                             /// Our own object
         System.out.println(car.name);
         System.out.println(car.model);
         System.out.println(car.year);
