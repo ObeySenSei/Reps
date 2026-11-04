@@ -16,8 +16,6 @@ class EquilateralTriangle extends Triangle {        /// Multilevel Inheritance: 
     }
 }
 class Circle extends Shape {                      ///  Hierarchical Inheritance: Circle inherits Shape
-
-    // Method Overloading (different parameter list)
     public void area(double radius) {
         System.out.println("Circle Area: " + (3.14 * radius * radius));
     }
