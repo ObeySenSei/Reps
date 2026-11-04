@@ -1,6 +1,6 @@
 package OOP;          // Demonstrating Method Overloading
 
-public class Polymorphism {
+public class Overloading {
     public static void main(String[] args) {
 
         Student4 s1 = new Student4();
