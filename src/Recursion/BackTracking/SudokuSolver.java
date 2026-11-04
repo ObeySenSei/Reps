@@ -21,9 +21,9 @@ public class SudokuSolver {
             return helper(board, nextRow, nextColumn);
         }
 
-        for (char digit = '1'; digit <= '9'; digit++) {         ///  If the spaces are empty, we need to place Digits
-            if (isSafe(board, r, c, digit)) {          ///  Need to check if it's safe to place a digit
-                board[r][c] = digit;                        ///  Place digit
+        for (char digit = '1'; digit <= '9'; digit++) {        ///  If the spaces are empty, we need to place Digits
+            if (isSafe(board, r, c, digit)) {            ///  Need to check if it's safe to place a digit
+                board[r][c] = digit;                          ///  Place digit
                 if (helper(board, nextRow, nextColumn)) {
                     return true;
                 }
@@ -40,13 +40,13 @@ public class SudokuSolver {
                 return false;
             }
         }
-        for (int j = 0; j < 9; j++) {                 /// Check Row (Vertical)
+        for (int j = 0; j < 9; j++) {                  /// Check Row (Vertical)
             if (board[j][c] == digit) {
                 return false;
             }
         }
 
-        int startRow = (r / 3) * 3;             /// To check inside a particular Grid
+        int startRow = (r / 3) * 3;                   /// To check inside a particular Grid
         int startCol = (c / 3) * 3;
         for (int i = startRow; i <= startRow + 2; i++) {
             for (int j = startCol; j <= startCol + 2; j++) {
@@ -74,7 +74,7 @@ public class SudokuSolver {
         System.out.println("--- Before Solving ---");
         printBoard(board);
 
-        solveSudoku(board);
+        solveSudoku(board);          /// Call the helper method
 
         System.out.println("\n--- After Solving---");
         printBoard(board);
