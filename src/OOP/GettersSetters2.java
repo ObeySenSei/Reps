@@ -27,6 +27,5 @@ public class GettersSetters2 {
         // myAccount.balance = 500.0; // COMPILE ERROR! Cannot access private field directly.
         // Correct way: Using public methods to interact with the data
 
-
     }
 }
