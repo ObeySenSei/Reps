@@ -1,18 +1,7 @@
 package OOP;   // Non- parameterized Constructor.
 
-public class NonParameterized{
-    public static void main(String[] args) {
-
-        Student s1 = new Student();
-        s1.name = "Abhishek";
-        s1.age = 24;
-
-        s1.printInfo();
-    }
-}
-
 class Student {                        /// This is our Student Class
-    String name;
+String name;
     int age;
 
     public void printInfo (){                  /// Both the print statements will be executed.
@@ -24,5 +13,16 @@ class Student {                        /// This is our Student Class
         System.out.println("Here we have called a constructor named Student inside the Class: Student");
     }
 }
+
+public class NonParameterized{
+    public static void main(String[] args) {
+
+        Student s1 = new Student();
+        s1.name = "Abhishek";
+        s1.age = 24;
+        s1.printInfo();
+    }
+}
+
 
 
