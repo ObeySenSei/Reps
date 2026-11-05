@@ -1,15 +1,15 @@
 package OOP;
 
-final class Student11 {       /// Final Class: Cannot be inherited
+final class Student11 {       /// Final Class: Cannot be inherited by another class. We can still create objects of it.
 
     String name;
-    final int rollNo = 101;   /// Final Variable: Cannot be reassigned
+    final int rollNo = 101;   /// Final Variable: Once initialized, its value cannot be reassigned.
 
     Student11(String name) {
         this.name = name;
     }
 
-    final void display() {                           /// Final Method: Cannot be overridden
+    final void display() {                           /// Final Method: A child class cannot override this method.
         System.out.println("Name: " + name);
         System.out.println("Roll No: " + rollNo);
     }
@@ -27,10 +27,12 @@ public class FinalClass {
         s1.display();
         s1.show();
 
-        // Cannot modify a final variable
-        // s1.rollNo = 102; // Compilation Error
+        /// s1.rollNo = 102 would produce a Compilation Error
 
-        // Cannot override a final method
-        // Cannot extend Student11 because it is a final class
+        /** Cannot override a final method. Trying to override display() will cause a compilation error
+            void display() {
+                System.out.println("Child class method");
+            }
+         */
     }
 }
