@@ -3,21 +3,18 @@ package OOP;
 public class WrapperClasses {
     public static void main(String[] args) {
 
-        // 1. Primitive variable
-        int a = 10;
 
-        // 2. Wrapper class object
-        Integer b = a;  // Autoboxing
+        int a = 10;          /// 1. Primitive variable
 
-        // 3. Unboxing
-        int c = b;
+        Integer b = a;       /// 2. Wrapper class object (Autoboxing)
 
-        // 4. Converting String to primitive int
+        int c = b;           /// 3. Unboxing
+
+
         String str = "100";
-        int num = Integer.parseInt(str);
+        int num = Integer.parseInt(str);       ///  4. Converting String to primitive int
 
-        // 5. Converting primitive int to String
-        String result = Integer.toString(a);
+        String result = Integer.toString(a);   /// 5. Converting primitive int to String
 
         // Display results
         System.out.println("Primitive value: " + a);
