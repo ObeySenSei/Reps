@@ -9,7 +9,7 @@ class Student7 {
         this("Unknown", 0, 0.0f);               /// In constructor chaining we use this()
     }
     Student7(String name, int rollno) {
-        this(name, rollno, 50.0f);
+        this(name, rollno, 50.0f);                       /// Calls another constructor in the same class
     }
     Student7(String name, int rollno, float marks) {
         this.name = name;
@@ -32,3 +32,10 @@ public class ConstructorChaining {
     }
 }
 
+/**
+
+ The key distinction to remember:
+ - this.accountHolder = accountHolder; → Assigns a value to an instance variable.
+ - this(accountHolder, accountNum, 1000.0); → Calls another constructor in the same class.
+
+ */
