@@ -22,6 +22,5 @@ public class CreatingAClass {
 
         System.out.println("Name: " + batch.names[2] + " Marks: " + batch.marks[2]);
 
-
     }
 }
