@@ -2,7 +2,7 @@ package OOP.Abstraction;
 
 class Student{
     String name;
-    static String school;           /// Static Class
+    static String school;           /// Static String variable
 
     public static void changeSchool(){
         school = "St. Joseph Convent";
@@ -18,5 +18,8 @@ public class Static {
         std1.name = "Tony";
 
         System.out.println(std1.school);
+
+        Student.changeSchool();
+        System.out.println(Student.school);
     }
 }
