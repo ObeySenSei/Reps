@@ -7,5 +7,6 @@
       </Languages>
     </inspection_tool>
     <inspection_tool class="GrazieStyle" enabled="true" level="STYLE_SUGGESTION" enabled_by_default="true" editorAttributes="DUPLICATE_FROM_SERVER" />
+    <inspection_tool class="MarkdownDocumentationCommentsMigration" enabled="false" level="INFORMATION" enabled_by_default="false" />
   </profile>
 </component>
