@@ -21,7 +21,7 @@ class Circle extends Shape {                      ///  Hierarchical Inheritance:
     }
 }
 
-public class Inheritance {
+public class Inheritance1 {
     public static void main(String[] args) {
 
         Triangle t1 = new Triangle();                 /// Creating Triangle Object

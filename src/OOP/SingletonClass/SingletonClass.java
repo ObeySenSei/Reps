@@ -1,10 +1,10 @@
-package OOP.staticEx;
+package OOP.SingletonClass;
 
 class Singleton {
 
     private static Singleton instance;           /// 1. Create a static reference variable
 
-    private Singleton() {                        /// 2. Make constructor private
+    private Singleton() {                        /// 2. Make constructor private. Why private? Because otherwise someone could create objects directly
         System.out.println("Object created!");
     }
 
