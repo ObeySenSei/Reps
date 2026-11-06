@@ -11,6 +11,10 @@ public class Human {
     // static variables belong to the class itself, not to any individual object.
     // Every Human object shares this exact same memory location.
 
+    static void display(){             /// Same goes for static methods
+        System.out.println("Hi");
+    }
+
     public Human(String name, int age, int salary, boolean married) {
         this.name = name;
         this.age = age;
@@ -21,5 +25,7 @@ public class Human {
         /* Note: Use the class name 'Human.population' rather than 'this.population'.
          Although 'this.population' is syntactically allowed, using the class name makes it
          explicit that 'population' is a class-level (static) variable, not an instance variable.  */
+
+        Human.display();
     }
 }
