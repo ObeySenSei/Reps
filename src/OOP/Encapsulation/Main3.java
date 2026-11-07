@@ -38,3 +38,6 @@ public class Main3 {
         System.out.println(e1.getSalary());
     }
 }
+
+///     Create an employee class where salary can be viewed but cannot be directly modified.
+///     Salary increases must happen through a dedicated method.
