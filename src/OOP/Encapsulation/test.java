@@ -1,38 +1,39 @@
 package OOP.Encapsulation;
 
-class User1{
-    private String username;
-    private String password;
+import java.util.ArrayList;
+import java.util.List;
 
-    public User1(String username, String password){
-        this.username = username;
-        this.password = password;
+class ShoppingCrt{
+    private ArrayList<String> products = new ArrayList<>();
+
+    public void addProduct(String product){
+        products.add(product);
     }
-    public String getUsername() {
-        return username;
+    public void removeProduct(String product){
+        products.remove(product);
     }
-    public void setPassword(String oldPass, String newPass){
-        if(password.equals(oldPass)){
-            password = newPass;
-            System.out.println("Password was changed successfully");
-        } else {
-            System.out.println("Error");
-        }
+    public List<String> getProducts(){              /// Getter
+        return new ArrayList<>();
     }
-    public boolean verify(String enteredPass){
-        return password.equals(enteredPass);
+    public void display(){
+        System.out.println(products);
     }
 }
 public class test{
-    public static void main(String[] args) {
-        User1 u1 = new User1 ("Debanga", "12345");
-        System.out.println(u1.verify("12345"));
+    public static void main(String[] args){
+        ShoppingCrt s1 = new ShoppingCrt();
 
-        u1.setPassword("12345","67890");
-        System.out.println(u1.verify("67890"));
+        s1.addProduct("Laptop");
+        s1.addProduct("Phone");
+        s1.addProduct("Tablet");
 
-        System.out.println(u1.getUsername());
+        s1.display();
 
+        s1.removeProduct("Phone");
+        s1.display();
 
+        List<String> items = s1.getProducts();
+        items.remove("Laptop");
+        s1.display();
     }
 }

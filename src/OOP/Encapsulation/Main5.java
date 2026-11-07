@@ -2,13 +2,9 @@ package OOP.Encapsulation;
 import java.util.ArrayList;
 import java.util.List;
 
-
-import java.util.ArrayList;
-import java.util.List;
-
 class ShoppingCart {
 
-    private ArrayList<String> products = new ArrayList<>();
+    private ArrayList<String> products = new ArrayList<>();      /// Instance Variable
 
     public void addProduct(String product) {
         products.add(product);
@@ -18,7 +14,7 @@ class ShoppingCart {
         products.remove(product);
     }
 
-    public List<String> getProducts() {
+    public List<String> getProducts() {                  /// Method to access the contents inside that variable
         return new ArrayList<>(products);
     }
 
@@ -39,13 +35,16 @@ public class Main5 {
         cart.displayCart();
 
         cart.removeProduct("Mouse");
-
         cart.displayCart();
 
-        // Try modifying the returned list
-        List<String> items = cart.getProducts();
-        items.add("Mobile");
+        List<String> items = cart.getProducts();    /// Getting a copy of the original list
 
+        items.add("Phone");         /// Modifying the returned copy
+
+        System.out.println("\nReturned List after modification:");
+        System.out.println(items);
+
+        System.out.println("\nOriginal cart after external modification:");       /// Displaying original cart again
         cart.displayCart();
     }
 }
