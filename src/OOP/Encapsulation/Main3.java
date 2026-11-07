@@ -9,33 +9,28 @@ class Employee {
         this.name = name;
         this.salary = salary;
     }
-
-    public String getName() {
+    public String getName() {        /// Getters
         return name;
     }
-
-    public double getSalary() {
+    public double getSalary() {      /// Getters
         return salary;
     }
-
     public void increaseSalary(double percentage) {
-
         if (percentage > 0) {
-            salary += salary * percentage / 100;
+            salary = salary + (salary * percentage / 100);
         } else {
             System.out.println("Invalid percentage");
         }
     }
 }
-
 public class Main3 {
     public static void main(String[] args) {
 
         Employee e1 = new Employee("Rahul", 30000);
-        System.out.println(e1.getSalary());
+        System.out.println(e1.getSalary() + " is the current Salary amount");
 
-        e1.increaseSalary(10);
-        System.out.println(e1.getSalary());
+        e1.increaseSalary(20);
+        System.out.println(e1.getSalary() + " is the Salary amount after increment");
     }
 }
 

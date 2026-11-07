@@ -1,7 +1,6 @@
 package OOP.Encapsulation;
 
 class User {
-
     private String username;
     private String password;
 
