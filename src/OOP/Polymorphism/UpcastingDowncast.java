@@ -18,7 +18,7 @@ public class UpcastingDowncast {
         Animal a = new Dog();         // Upcasting
         a.sound();
 
-        Dog d = (Dog) a;              // Downcasting
+        Dog d = (Dog) a;             // Downcasting
         d.bark();
     }
 }
