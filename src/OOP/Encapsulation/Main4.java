@@ -8,18 +8,14 @@ class User {
         this.username = username;
         this.password = password;
     }
-
     public String getUsername() {
         return username;
     }
-
     public void changePassword(String oldPassword, String newPassword) {
 
         if (password.equals(oldPassword)) {
-
             password = newPassword;
             System.out.println("Password changed successfully");
-
         } else {
             System.out.println("Incorrect old password");
         }
@@ -38,5 +34,7 @@ public class Main4 {
 
         user.changePassword("12345", "67890");
         System.out.println(user.verifyPassword("67890"));
+
+        System.out.println(user.getUsername());
     }
 }

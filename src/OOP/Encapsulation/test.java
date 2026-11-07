@@ -1,33 +1,38 @@
 package OOP.Encapsulation;
 
-class Employeee{
-    private String name;
-    private double salary;
+class User1{
+    private String username;
+    private String password;
 
-    public Employeee (String name, double salary){
-        this.name = name;
-        this.salary = salary;
+    public User1(String username, String password){
+        this.username = username;
+        this.password = password;
     }
-    public String getName(){
-        return name;
+    public String getUsername() {
+        return username;
     }
-    public double getSalary(){
-        return salary;
-    }
-    public void increaseSalary(double percentage){
-        if (percentage > 0){
-            salary = salary + (salary * percentage / 100);
+    public void setPassword(String oldPass, String newPass){
+        if(password.equals(oldPass)){
+            password = newPass;
+            System.out.println("Password was changed successfully");
         } else {
-            System.out.println("Invalid Percentage");
+            System.out.println("Error");
         }
     }
+    public boolean verify(String enteredPass){
+        return password.equals(enteredPass);
+    }
 }
-public class test {
+public class test{
     public static void main(String[] args) {
-        Employee e1 = new Employee("Debashis", 56000);
-        System.out.println(e1.getSalary() + " is the current Salary amount");
+        User1 u1 = new User1 ("Debanga", "12345");
+        System.out.println(u1.verify("12345"));
 
-        e1.increaseSalary(20);
-        System.out.println(e1.getSalary() + " is the Salary amount after increment");
+        u1.setPassword("12345","67890");
+        System.out.println(u1.verify("67890"));
+
+        System.out.println(u1.getUsername());
+
+
     }
 }
