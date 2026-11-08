@@ -2,6 +2,7 @@ package OOP.Abstraction;
 
 abstract class Animal2 {               /// Abstract Class
     abstract void walk();
+
     public void eats(){
         System.out.println("Animal eats");
     }

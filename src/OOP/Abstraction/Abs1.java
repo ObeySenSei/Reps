@@ -1,4 +1,4 @@
-package OOP.Abstraction;
+package OOP.Abstraction;        /// Abstraction through Interfaces
 
 interface Payment {
     void pay(double amount);       //  We declare a method but don't provide its implementation. The interface simply establishes a contract.
