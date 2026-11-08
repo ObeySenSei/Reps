@@ -2,7 +2,7 @@ package OOP.Abstraction;     // Concept: Combining abstraction, encapsulation, i
 
 abstract class ATM {
 
-    private double balance;
+    private double balance;    /// private instance variables because we don't want external classes to modify these variables (Encapsulation)
     private int pin;
 
     ATM(double balance, int pin) {                           /// Constructor
@@ -15,17 +15,15 @@ abstract class ATM {
     }
 
     abstract void withdraw(double amount, int enteredPin);   /// Abstract methods
-
     abstract void checkBalance(int enteredPin);
 
-    // Protected method to update balance
+
     protected void updateBalance(double amount) {
         balance = balance - amount;
-    }
+    }  // Protected method to update balance
 
-    // Getter
     protected double getBalance() {
-        return balance;
+        return balance;                         ///  Getter - Returns current Balance.
     }
 }
 
