@@ -1,7 +1,7 @@
 package OOP.Abstraction;
 
 interface Payment {
-    void pay(double amount);           //  We declare a method but don't provide its implementation. The interface simply establishes a contract.
+    void pay(double amount);       //  We declare a method but don't provide its implementation. The interface simply establishes a contract.
 }
 
 class UPIPayment implements Payment {   // UPIPayment provides its own implementation of pay().
