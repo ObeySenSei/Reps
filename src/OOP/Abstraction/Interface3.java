@@ -1,6 +1,6 @@
-package OOP;
+package OOP.Abstraction;
 
-interface Vehicle {
+interface Vehicle1 {
     abstract void start();                      // start() has no body. Why? Because it's abstract.
 
     default void stop(){                        // stop() has a body. That's why we use default.
@@ -10,7 +10,7 @@ interface Vehicle {
         System.out.println("XYZ Motors");
     }
 }
-class Car implements Vehicle{
+class Car2 implements Vehicle1{
 
     @Override
     public void start(){
@@ -20,10 +20,10 @@ class Car implements Vehicle{
 
 public class Interface3 {
     public static void main(String[] args) {
-        Car car = new Car();
+        Car2 car = new Car2();
 
         car.start();    // Remember this rule: Default methods belong to the implementing object's inherited behaviour. You call them using the object.
         car.stop();
-        Vehicle.serviceInfo();    // Static methods belong to the interface itself. We call them using the interface name.
+        Vehicle1.serviceInfo();    // Static methods belong to the interface itself. We call them using the interface name.
     }
 }
