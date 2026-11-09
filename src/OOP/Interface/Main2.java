@@ -1,7 +1,7 @@
 package OOP.Interface;
 
 interface University {
-    int PASSING_MARKS = 40;        ///  When declaring an interface, the variables are always implicitly declared public static final and cannot be Re-assigned.
+    int PASSING_MARKS = 40;     ///  When declaring an interface, the variables are always implicitly declared public static final and cannot be Re-assigned.
 }
 
 class Science implements University {
@@ -34,6 +34,6 @@ public class Main2 {
 
         s.checkMarks(75);
         c.checkMarks(30);
-        System.out.println(University.PASSING_MARKS);
+        System.out.println(University.PASSING_MARKS);   // We can access the static final variable by using the Interface name.
     }
 }
