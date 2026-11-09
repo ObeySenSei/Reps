@@ -1,36 +1,71 @@
 package OOP.Interface;
 
-interface University1 {
-    int passMarks = 40;
-}
-class Science1 implements University1{
-
-    void checkMarks(int marks){
-        if (marks >= passMarks){
-            System.out.println("Pass");
-        } else {
-            System.out.println("Fail");
-        }
+interface Device1{
+    void connect();
+    default void identify(){
+        System.out.println("Generic device identified");
     }
 }
-class Math1 implements University1{
-    void checkMarks(int marks){
-        if(marks >= passMarks){
-            System.out.println("Pass");
-        } else {
-            System.out.println("Fail");
-        }
+interface Alarm1 extends Device1{
+    @Override
+    default void identify(){
+        System.out.println("Alarm System identified");
     }
+    void activateAlarm();
+}
+interface Camera1 extends  Device1 {
+    @Override
+    default void identify() {
+        System.out.println("Camera systems identified");
+    }
+    void takePhoto();
 }
 
-public class test {
+interface SmartSys extends Alarm1, Camera1 {
+    @Override
+    default void identify() {
+        System.out.println("Smart systems identified");
+
+        Alarm1.super.identify();
+        Camera1.super.identify();
+    }
+
+    void monitor();
+    }
+class SmartSecurity1 implements SmartSys {
+    @Override
+    public void connect(){
+        System.out.println("Connecting to security Network");
+    }
+    @Override
+    public void activateAlarm(){
+        System.out.println("Activating the alarm");
+    }
+    @Override
+    public void takePhoto(){
+        System.out.println("Taking a Photo");
+    }
+    @Override
+    public void monitor(){
+        System.out.println("Monitoring active");
+    }
+}
+public class test{
     public static void main(String[] args) {
-        Science1 s1 = new Science1();
-        Math1 m1 = new Math1();
+        SmartSecurity1 s1 = new SmartSecurity1();
 
-        s1.checkMarks(41);
-        m1.checkMarks(40);
+        s1.connect();
+        s1.activateAlarm();
+        s1.takePhoto();
+        s1.monitor();
+        s1.identify();
 
-        System.out.println(University.PASSING_MARKS);
     }
 }
+
+
+
+
+
+
+
