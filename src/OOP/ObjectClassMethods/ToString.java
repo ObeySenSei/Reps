@@ -13,7 +13,7 @@ class Student {
 public class ToString {
     public static void main(String[] args) {
 
-        Student s1 = new Student("Debanga", 22);
+        Student s1 = new Student("Debanga", 26);
         System.out.println(s1);
     }
 }
