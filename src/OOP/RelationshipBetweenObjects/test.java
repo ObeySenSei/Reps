@@ -55,7 +55,7 @@ public class test{
 
         p1.bookAppointment(d1,a1);
         a1.displayAppointment();
-
-
     }
 }
+
+//  Challenge:  Modify this program so that a Doctor can receive and treat two different Patients, without creating a new Doctor object.
