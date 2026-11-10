@@ -12,10 +12,10 @@ class Student5 {
     @Override
     public boolean equals(Object obj) {
 
-        if (this == obj) return true;
-        if (!(obj instanceof Student5)) return false;
-        Student5 other = (Student5) obj;
-        return Objects.equals(name, other.name);
+        if (this == obj) return true;                     // this == obj	false, because s1 and s2 are different objects.
+        if (!(obj instanceof Student5)) return false;     // true, because obj refers to a Student object.
+        Student5 other = (Student5) obj;                  // Converts obj into a Student reference.
+        return Objects.equals(name, other.name);    // Compares "Debanga" with "Debanga".
     }
 }
 

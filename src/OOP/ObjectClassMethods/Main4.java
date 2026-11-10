@@ -12,13 +12,13 @@ class Student7 {               // Overriding both equals() and hashCode()
     @Override
     public boolean equals(Object obj) {
 
-        if (this == obj) return true;
+        if (this == obj) return true;                       // this == obj	false, because st1 and st2 are different objects.
         if (!(obj instanceof Student7)) return false;
         Student7 other = (Student7) obj;
         return Objects.equals(name, other.name);
     }
 
-    @Override
+    @Override                                           //  Since equals() returns true, HashSet recognises st2 as a duplicate.
     public int hashCode() {
         return Objects.hash(name);
     }
@@ -29,7 +29,7 @@ public class Main4 {
 
         HashSet<Student7> students = new HashSet<>();
 
-        Student7 s1 = new Student7("Rahul");
+        Student7 s1 = new Student7("Rahul");        // Two separate objects are created in Heap Memory, but with the same Name.
         Student7 s2 = new Student7("Rahul");
 
         students.add(s1);
