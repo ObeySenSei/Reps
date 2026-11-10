@@ -8,7 +8,7 @@ public class GetClass {
 
         Studentt s1 = new Studentt();
 
-        System.out.println(s1.getClass());
-        System.out.println(s1.getClass().getName());
+        System.out.println(s1.getClass());            //  getClass() returns a Class object representing the runtime type.
+        System.out.println(s1.getClass().getName());  //  getClass().getName() returns its fully qualified class name.
     }
 }
