@@ -30,8 +30,8 @@ interface SmartSystem extends Camera, Alarm {
     @Override
     default void identify() {
         System.out.println("Smart Security System identified");
-        Camera.super.identify();
-        Alarm.super.identify();
+        Camera.super.identify();           //  Explicitly calls Camera's default implementation.
+        Alarm.super.identify();            //  Explicitly calls Alarm's default implementation.
     }
 
     void monitor();
@@ -69,3 +69,10 @@ public class MultilevelInterface {
         security.monitor();
     }
 }
+
+/*
+
+Remember, SmartSystem has inherited methods from Camera, Alarm and Device.
+Therefore, SmartSecurity must implement all the remaining abstract methods.
+
+ */
