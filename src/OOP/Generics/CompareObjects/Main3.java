@@ -11,7 +11,7 @@ class Employee implements Comparable<Employee>{
     }
     @Override
     public int compareTo(Employee other) {
-        return Integer.compare(this.salary , other.salary);
+        return Integer.compare(this.salary , other.salary);    // Notice here we are just passing down two parameters instead of (this.age - other.age)
     }
     @Override
     public String toString(){
