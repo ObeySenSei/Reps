@@ -1,4 +1,4 @@
-package BinaryTrees;
+package BinaryTrees;       ///  Manual Construction of Binary Tree. Here we are manually specifying where each node goes.
 
 public class Node {
 
@@ -37,7 +37,7 @@ public class Node {
         }
 
         inorder(root.left);
-        System.out.println(root.data);
+        System.out.println(root.data);    // Prints #1 the Root Node
         inorder(root.right);
     }
 
@@ -47,7 +47,7 @@ public class Node {
             return;
         }
 
-        System.out.println(root.data);
+        System.out.println(root.data);   // Prints #1 the Root Node
         preorder(root.left);
         preorder(root.right);
     }
