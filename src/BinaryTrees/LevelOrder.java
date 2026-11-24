@@ -40,7 +40,7 @@ public class LevelOrder {
             return;
         }
 
-        Queue<Node> q = new LinkedList<>();       ///  creates an empty queue []
+        Queue<Node> q = new LinkedList<>();       ///  creates an empty queue []   We use a Queue because Level Order Traversal follows FIFO (First In, First Out).
         q.add(root);                             ///  q.add(root); → adds node 1 (front = 1, back = 1)
 
         while (!q.isEmpty()) {

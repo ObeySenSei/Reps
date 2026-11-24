@@ -1,12 +1,11 @@
 package BinaryTrees;
-import java.util.LinkedList;
-import java.util.Queue;
+
 
 public class test {
-    static class Node{
+    static class Node {
         int data;
-        Node left;
-        Node right;
+        Node left ;
+        Node right;      // HERE WE ARE CREATING INSTANCE VARIABLES
 
         Node(int data){
             this.data = data;
@@ -14,41 +13,62 @@ public class test {
             this.right = null;
         }
     }
-    public static void main(String[] args){
-             /*
-                 1
-                / \
-               2   3
-              / \   \
-             4   5   6
-        */
+    static int index = -1;
 
-        Node root = new Node(1);
-        root.left = new Node(2);
-        root.left.left = new Node(4);
-        root.left.right = new Node(5);
-        root.right = new Node(3);
-        root.right.right = new Node(6);
+    public static Node buildTree(int[] preorder){
+        index++;
+        
+        if(preorder[index] == -1){   // If the current element in our preorder array is -1, then
+            return null;
+        }
+        Node root = new Node(preorder[index]);  /// Then store that element
 
-        leveOrder(root);
+        root.left = buildTree(preorder);
+        root.right = buildTree(preorder);
+        return root;
     }
-    public static void leveOrder(Node root){
-        if (root == null){
+    public static void inOrder(Node root){
+        if (root==null){
             return;
         }
-        Queue<Node> q = new LinkedList<>();
-        q.add(root);
-
-        while(!q.isEmpty()){
-            Node current = q.remove();
-            System.out.print(current.data + " ");
-
-            if(current.left != null){
-                q.add(current.left);
-            }
-            if(current.left != null){
-                q.add(current.right);
-            }
+        inOrder(root.left);
+        System.out.print(root.data + " ");
+        inOrder(root.right);
+    }
+    public static void preOrder(Node root){
+        if (root==null){
+            return;
         }
+        System.out.print(root.data + " ");
+        preOrder(root.left);
+        preOrder(root.right);
+    }
+    public static void postOrder(Node root){
+        if (root==null){
+            return;
+        }
+        postOrder(root.left);
+        postOrder(root.right);
+        System.out.print(root.data + " ");
+    }
+
+    public static void main(String[] args) {
+        int[] preorder = {1, 2, -1, -1, 3, 4, -1, -1, 5, -1, -1};
+        Node result = buildTree(preorder);
+
+        System.out.println("Binary Tree constructed successfully!");
+        System.out.print("Inorder: ");
+        inOrder(result);
+        System.out.println();
+
+        System.out.print("PreOder: ");
+        preOrder(result);
+        System.out.println();
+
+        System.out.print("PostOder: ");
+        postOrder(result);
+        System.out.println();
+
+
     }
 }
