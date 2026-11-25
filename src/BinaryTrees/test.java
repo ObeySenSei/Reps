@@ -1,6 +1,5 @@
 package BinaryTrees;
 
-
 public class test {
     static class Node {
         int data;
@@ -68,7 +67,6 @@ public class test {
         System.out.print("PostOder: ");
         postOrder(result);
         System.out.println();
-
 
     }
 }

@@ -2,7 +2,7 @@ package BinaryTrees;
 import java.util.Queue;
 import java.util.LinkedList;
 
-public class LevelOrder {
+public class LevelOrderNormalBFS {
     static class Node {
         int data;
         Node left;
@@ -15,25 +15,6 @@ public class LevelOrder {
         }
     }
 
-    public static void main(String[] args) {
-
-        /*
-                 1
-                / \
-               2   3
-              / \   \
-             4   5   6
-        */
-
-        Node root = new Node(1);  // new Node(1) → Creates a new Node object with data = 1. Node root → Declares a reference variable called root that POINTS to that object.
-        root.left = new Node(2);  // Again, new Node(2) creates a brand-new Node object.     root.left accesses the left reference of the existing root object.
-        root.right = new Node(3);
-        root.left.left = new Node(4);
-        root.left.right = new Node(5);
-        root.right.right = new Node(6);
-        System.out.println("Level Order Traversal: ");
-        levelOrder(root);
-    }
     // Level Order Traversal (BFS)
     public static void levelOrder(Node root) {    // Node → Data type   root → Parameter name (reference variable)
         if (root == null) {
@@ -56,6 +37,25 @@ public class LevelOrder {
                 q.add(current.right);
             }
         }
+    }
+
+    public static void main(String[] args) {
+        /*
+                 1
+                / \
+               2   3
+              / \   \
+             4   5   6
+        */
+
+        Node root = new Node(1);  // new Node(1) → Creates a new Node object with data = 1. Node root → Declares a reference variable called root that POINTS to that object.
+        root.left = new Node(2);  // Again, new Node(2) creates a brand-new Node object.     root.left accesses the left reference of the existing root object.
+        root.right = new Node(3);
+        root.left.left = new Node(4);
+        root.left.right = new Node(5);
+        root.right.right = new Node(6);
+        System.out.println("Level Order Traversal: ");
+        levelOrder(root);
     }
 }
 

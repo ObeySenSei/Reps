@@ -2,7 +2,7 @@ package BinaryTrees;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class LevelOrderTraversalLineWise {
+public class LevelOrderTraversalNull {
     static class Node {
         int data;
         Node left;
@@ -13,9 +13,9 @@ public class LevelOrderTraversalLineWise {
         }
     }
 
-    static int idx = -1;                                 // Maintains index across recursive calls
+    static int idx = -1;
 
-    public static Node buildTree(int[] preorder) {       // Build Binary Tree using Preorder
+    public static Node buildTree(int[] preorder) {         ///  Build Binary Tree using Preorder
 
         idx++;
 
@@ -31,42 +31,47 @@ public class LevelOrderTraversalLineWise {
         return root;
     }
 
-    // Level Order Traversal (Line Wise)
+    // Level Order Traversal using Null Delimiter
     public static void levelOrder(Node root) {
+
         if (root == null) return;
 
         Queue<Node> q = new LinkedList<>();
+
         q.add(root);
+        q.add(null);
 
         while (!q.isEmpty()) {
-            int size = q.size();
 
-            for (int i = 0; i < size; i++) {
-                Node curr = q.remove();
+            Node curr = q.remove();
+
+            if (curr == null) {
+                System.out.println();
+                if (q.isEmpty()) {
+                    break;
+                }
+                q.add(null);
+
+            } else {
                 System.out.print(curr.data + " ");
 
                 if (curr.left != null) {
                     q.add(curr.left);
                 }
-
                 if (curr.right != null) {
                     q.add(curr.right);
                 }
             }
-            System.out.println();
         }
     }
 
     public static void main(String[] args) {
 
-        int[] traversal = {
-                1, 2, -1, -1, 3, 4, -1, -1, 5, -1, -1};
+        int[] traversal = {1, 2, -1, -1, 3, 4, -1, -1, 5, -1, -1};
 
-        Node result = buildTree(traversal);
+        Node root = buildTree(traversal);
 
-        System.out.println("\n\nLevel Order (Line Wise):");
-        levelOrder(result);
+        System.out.println("Level Order (Null Delimiter):");
+        levelOrder(root);
     }
 }
-
-
