@@ -30,9 +30,9 @@ public class ValidateBST {
                 && helper(root.right, root, max);      // root.right calls the right tree recursively
     }
 
-    // Main validation function
-    public static boolean isValidBST(TreeNode root) {
-        return helper(root, null, null);
+    // main entry point for BST validation.
+    public static boolean isValidBST(TreeNode root) {          /// It accepts only the root node. Initializes the minimum and maximum boundaries as null.
+        return helper(root, null, null);             ///  Returns the final SINGLE true or false result to main().
     }
 
     public static void main(String[] args) {

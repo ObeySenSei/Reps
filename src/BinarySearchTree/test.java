@@ -2,43 +2,37 @@ package BinarySearchTree;
 
 
 public class test {
-    static class TreeNode {
+    static class Node {
         int data;
-        TreeNode left;
-        TreeNode right;
+        Node left;
+        Node right;
 
-        TreeNode(int data){
+        Node(int data){
             this.data = data;
         }
     }
-    public static boolean helper (TreeNode root, TreeNode min, TreeNode max){
-        if(root == null){
-            return true;
+    public static int CountNodes(Node root){
+        if (root==null){
+            return 0;
         }
-        if(min != null && root.data <= min.data){
-            return false;
-        }
-        if(max != null && root.data >= max.data){
-            return false;
-        }
-        return helper(root.left, min,root) && helper(root.right, root, max);
+        int countleft = CountNodes(root.left);
+        int countright = CountNodes(root.right);
 
-    }
-    public static boolean isValid (TreeNode root){
-        return helper(root, null, null);
+        return 1 + countleft + countright;
     }
 
     public static void main(String[] args) {
-        TreeNode root = new TreeNode(4);
 
-        root.left = new TreeNode(1);
-        root.right = new TreeNode(6);
+        Node root = new Node(1);
+        root.right = new Node(2);
+        root.left = new Node(3);
 
-        root.right.right = new TreeNode(7);
-        root.right.left = new TreeNode(5);
+        root.left.left = new Node(4);
+        root.left.right = new Node(5);
 
-        System.out.println(isValid(root));
+        root.right.left = new Node(6);
+        root.right.right = new Node(7);
+
+        System.out.println(CountNodes(root));
     }
 }
-
-

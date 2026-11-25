@@ -1,28 +1,28 @@
 package BinaryTrees;       ///  Manual Construction of Binary Tree. Here we are manually specifying where each node goes.
 
-public class Node {
+public class ManualConstructionBinaryTree {
 
     int data;
-    Node left;       // Reference to the left child
-    Node right;      // Reference to the right child
+    ManualConstructionBinaryTree left;       // Reference to the left child
+    ManualConstructionBinaryTree right;      // Reference to the right child
 
-    Node (int data){              // Constructor
+    ManualConstructionBinaryTree(int data){              // Constructor
         this.data = data;         // Assignment statement
         this.left = null;
         this.right = null;
     }
 
     public static void main(String[] args) {
-        Node root = new Node(1);
+        ManualConstructionBinaryTree root = new ManualConstructionBinaryTree(1);
 
-        root.left = new Node(2);
-        root.right = new Node(3);
+        root.left = new ManualConstructionBinaryTree(2);
+        root.right = new ManualConstructionBinaryTree(3);
 
-        root.left.left = new Node(4);
-        root.left.right = new Node(5);
+        root.left.left = new ManualConstructionBinaryTree(4);
+        root.left.right = new ManualConstructionBinaryTree(5);
 
-        root.right.left = new Node(6);
-        root.right.right = new Node(7);
+        root.right.left = new ManualConstructionBinaryTree(6);
+        root.right.right = new ManualConstructionBinaryTree(7);
 
         inorder(root);
 //        preorder(root);
@@ -31,7 +31,7 @@ public class Node {
     }
 
     // Implementing inorder Traversal: Left -> Root -> Right
-    public static void inorder(Node root) {
+    public static void inorder(ManualConstructionBinaryTree root) {
         if (root == null) {
             return;
         }
@@ -42,7 +42,7 @@ public class Node {
     }
 
     /// Preorder Traversal: Root -> Left -> Right
-    public static void preorder(Node root) {
+    public static void preorder(ManualConstructionBinaryTree root) {
         if (root == null) {
             return;
         }
@@ -53,7 +53,7 @@ public class Node {
     }
 
     /// Postorder Traversal: Left -> Right -> Root
-    public static void postorder(Node root) {
+    public static void postorder(ManualConstructionBinaryTree root) {
         if (root == null) {
             return;
         }
