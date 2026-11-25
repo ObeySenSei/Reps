@@ -1,37 +1,33 @@
 package BinarySearchTree;
 
 public class ValidateBST {
-
     static class TreeNode {
-        int val;
-        TreeNode left, right;
+        int data;
+        TreeNode left;
+        TreeNode right;
 
-        TreeNode(int val) {
-            this.val = val;
+        TreeNode(int data) {
+            this.data = data;
         }
     }
 
-    // Helper function
-    public static boolean helper(TreeNode root, TreeNode min, TreeNode max) {
+    public static boolean helper(TreeNode root, TreeNode min, TreeNode max) {      ///  Helper function
 
-        // Base case
-        if (root == null) {
+        if (root == null) {     // Base case of recursion
             return true;
         }
 
-        // Check minimum boundary
-        if (min != null && root.val <= min.val) {
+        if (min != null && root.data <= min.data) {     // if there exists a boundary and the value of the current node is less than or equal to that data, BST is Invalid.
             return false;
         }
 
-        // Check maximum boundary
-        if (max != null && root.val >= max.val) {
+        if (max != null && root.data >= max.data) {   // Check maximum boundary
             return false;
         }
 
-        // Recursively validate left and right subtrees
-        return helper(root.left, min, root)
-                && helper(root.right, root, max);
+        /// Recursively validate left and right subtrees
+        return  helper(root.left, min, root)           // root.left calls the left tree recursively
+                && helper(root.right, root, max);      // root.right calls the right tree recursively
     }
 
     // Main validation function
@@ -52,3 +48,12 @@ public class ValidateBST {
         System.out.println(isValidBST(root));
     }
 }
+
+/**
+
+ min != null , checks whether a minimum boundary has been established.
+ root.data <= min.data — checks whether the current node is smaller than or equal to that boundary.
+ If both conditions are true, the BST is invalid.
+
+
+ */
