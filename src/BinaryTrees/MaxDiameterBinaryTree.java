@@ -1,4 +1,4 @@
-package BinaryTrees;
+package BinaryTrees;  /// Here we calculate the diameter of each Node element and return the max found
 
 public class MaxDiameterBinaryTree {
     static class Node {
@@ -13,7 +13,6 @@ public class MaxDiameterBinaryTree {
     static int ans = 0;                             ///  In this approach, we need to use an ANS variable to compare previous diameters of every node and return the max Ans.
 
     public static int height(Node root) {
-
         if (root == null) {
             return 0;
         }
@@ -23,7 +22,7 @@ public class MaxDiameterBinaryTree {
 
         ans = Math.max(ans, leftHt + rightHt);      ///  Update maximum diameter (Because the diameter passing through the current node is equal to the sum of the left and right subtree heights)
 
-        return Math.max(leftHt, rightHt) + 1;       ///  Return the max height of the current node. (that passes through the root). +1 includes itself
+        return Math.max(leftHt, rightHt) + 1;       ///  We choose the max edge of either the left Subtree or Right and then add 1 to include itself
     }
 
     public static int diameterOfBinaryTree(Node root) {

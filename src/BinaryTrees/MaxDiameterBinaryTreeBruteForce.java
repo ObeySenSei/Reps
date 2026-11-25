@@ -17,7 +17,7 @@ public class MaxDiameterBinaryTreeBruteForce {
         int leftHt = height(root.left);
         int rightHt = height(root.right);
 
-        return Math.max(leftHt, rightHt) + 1;       ///  We choose either the left Subtree or Right and then add 1.
+        return Math.max(leftHt, rightHt) + 1;      ///  Return the max height of the current node from either left or right (that passes through the root). +1 includes itself
     }
 
     public static int diameter(Node root) {       /// Calculate diameter
