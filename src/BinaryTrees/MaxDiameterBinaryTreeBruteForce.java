@@ -4,14 +4,12 @@ public class MaxDiameterBinaryTreeBruteForce {
     static class Node {
         int data;
         Node left, right;
-
         Node(int data) {
             this.data = data;
         }
     }
 
-    public static int height(Node root) {                      ///  Calculate height
-
+    public static int height(Node root) {        ///  Calculate height for the Root Node where the diameter passes through its Root.
         if (root == null) {
             return 0;
         }
@@ -19,19 +17,18 @@ public class MaxDiameterBinaryTreeBruteForce {
         int leftHt = height(root.left);
         int rightHt = height(root.right);
 
-        return Math.max(leftHt, rightHt) + 1;
+        return Math.max(leftHt, rightHt) + 1;       ///  We choose either the left Subtree or Right and then add 1.
     }
 
-    public static int diameterOfBinaryTree(Node root) {       /// Calculate diameter
+    public static int diameter(Node root) {       /// Calculate diameter
 
         if (root == null) {
             return 0;
         }
 
-        int leftDiam = diameterOfBinaryTree(root.left);
-        int rightDiam = diameterOfBinaryTree(root.right);
-
-        int currDiam = height(root.left) + height(root.right);
+        int leftDiam = diameter(root.left);             ///  Diameter that goes through left
+        int rightDiam = diameter(root.right);           ///  Diameter that goes through right
+        int currDiam = height(root.left) + height(root.right);   /// We need to calculate the height to get the diameter that passes through the Main Root Node.
 
         return Math.max(currDiam, Math.max(leftDiam, rightDiam));
     }
@@ -48,7 +45,7 @@ public class MaxDiameterBinaryTreeBruteForce {
 
         root.left.left.left = new Node(6);
 
-        System.out.println(diameterOfBinaryTree(root));
+        System.out.println(diameter(root));
     }
 }
 /**

@@ -1,6 +1,5 @@
 package BinarySearchTree;
 
-
 public class test {
     static class Node {
         int data;
@@ -11,14 +10,23 @@ public class test {
             this.data = data;
         }
     }
-    public static int CountNodes(Node root){
-        if (root==null){
-            return 0;
-        }
-        int countleft = CountNodes(root.left);
-        int countright = CountNodes(root.right);
 
-        return 1 + countleft + countright;
+    public static int findHeight(Node root){
+        if (root==null) return 0;
+
+        int leftHeight = findHeight(root.left);
+        int rightHeight = findHeight(root.right);
+
+        return Math.max(leftHeight, rightHeight) + 1 ;
+    }
+    public static int diameter(Node root){
+        if (root==null) return 0;
+
+        int leftd = diameter(root.left);
+        int rightd = diameter(root.right);
+        int currentD = findHeight(root.left) + findHeight(root.right);
+
+        return Math.max(currentD, Math.max(leftd,rightd));
     }
 
     public static void main(String[] args) {
@@ -30,9 +38,8 @@ public class test {
         root.left.left = new Node(4);
         root.left.right = new Node(5);
 
-        root.right.left = new Node(6);
-        root.right.right = new Node(7);
+        root.left.left.left = new Node(6);
 
-        System.out.println(CountNodes(root));
+        System.out.println(findHeight(root));
     }
 }
