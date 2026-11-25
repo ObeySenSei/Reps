@@ -16,7 +16,7 @@ public class CalculateHeight {
             return 0;
         }
         int leftHeight = calculateHeight(root.left);
-        int rightHeight = calculateHeight(root.left);
+        int rightHeight = calculateHeight(root.right);
 
         return 1 + Math.max(leftHeight , rightHeight);
 
