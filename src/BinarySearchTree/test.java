@@ -1,44 +1,40 @@
 package BinarySearchTree;
 
-public class test {
-    static class Node{
-        int data;
-        Node right,left;
+import org.w3c.dom.Node;
 
-        Node(int data){
+public class test {
+    static class TreeNode{
+        int data;
+        TreeNode right,left;
+
+        TreeNode(int data){
             this.data = data;
         }
     }
-    static int ans = 0;   /// Every class can access its data, global variable.
-
-    public static int calculateHeight(Node root){
-        if(root==null){
-            return 0;
+    public static boolean check (TreeNode p, TreeNode q){
+        if (p==null || q==null){
+            return p==q;
         }
-        int leftheight = calculateHeight(root.left);
-        int righthight = calculateHeight(root.right);
-        ans = Math.max(ans, leftheight + righthight);          // diameter...for 1 node
+        boolean checkLeft = check(p.left, q.left);
+        boolean checkRight= check(p.right, q.right);
 
-        return 1 + Math.max(leftheight,righthight);
+        return checkLeft && checkRight && p.data == q.data;
     }
-    public static int calculateDiameter(Node root){
-        if(root==null) return 0;
-        calculateHeight(root);
-        return ans;
-    }
+
 
     public static void main(String[] args) {
-        Node root = new Node(1);
-        root.left = new Node(2);
-        root.left.left = new Node(3);
-        root.left.left.left = new Node(4);
 
-        root.left.right = new Node(5);
-        root.right= new Node(7);
-        root.right.left= new Node(8);
+        // First tree
+        TreeNode p = new TreeNode(1);
+        p.left = new TreeNode(2);
+        p.right = new TreeNode(3);
 
-        System.out.println(calculateDiameter(root));
 
+        TreeNode q = new TreeNode(1);
+        q.left = new TreeNode(2);
+        q.right = new TreeNode(4);
+
+        System.out.println("Are both trees identical? " + check(p, q));
     }
 
 }

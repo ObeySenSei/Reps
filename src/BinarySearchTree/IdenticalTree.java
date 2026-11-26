@@ -12,13 +12,12 @@ public class IdenticalTree {
 
     public static boolean check(TreeNode p, TreeNode q) {
 
-        if (p == null || q == null) {                           /// Base case: if either node is null
+        if (p == null || q == null) {                           /// Base case: if either node is null....if both p and q are not null, that is they contain some values. Then the condition is skipped entirely.
             return p == q;
         }
 
         boolean isLeftSame = check(p.left, q.left);       /// Recursively compare left subtrees
         boolean isRightSame = check(p.right, q.right);    /// Recursively compare right subtrees
-
 
         return isLeftSame && isRightSame && p.data == q.data;   /// Compare both subtrees and current node values
     }
@@ -49,5 +48,9 @@ public class IdenticalTree {
  - q == null → true
  - p == q → true
  Both trees have reached an empty position. Their structures match at this position.
+
+ Interview explanation:
+ If both nodes exist, recursively compare their left and right subtrees and verify that their current node values match.
+
 
  */
