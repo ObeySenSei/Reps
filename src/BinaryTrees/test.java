@@ -1,8 +1,4 @@
 package BinaryTrees;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.TreeMap;
 
 public  class test {
     static class Node {
@@ -14,44 +10,25 @@ public  class test {
             this.data = data;
         }
     }
+    public static int transform(Node root){
+        if (root == null) return 0;
 
-    public static void topView(Node root) {
-        Queue<Node> q = new LinkedList<>();
-        TreeMap<Integer, Integer> map = new TreeMap<>();
-        HashMap<Node, Integer> hdmap = new HashMap<>();
+        int calLeft = transform(root.left);
+        int calRight = transform(root.right);
 
-        q.add(root);
-        hdmap.put(root, 0);
-
-        while (!q.isEmpty()){
-            Node current = q.poll();
-            int hd = hdmap.get(current);
-
-            if(!hdmap.containsKey(hd)){
-                map.put(hd, current.data );
-            }
-            if(current.left != null){
-                q.add (current.left);
-                hdmap.put(current.left,hd-1 );
-            }
-            if(current.right != null){
-                q.add (current.right);
-                hdmap.put(current.right,hd + 1);
-            }
-            for(int value : map.values()){
-                System.out.println(value + " ");
-            }
-
-        }
+        int store = root.data;
+        root.data = store + calLeft + calRight;
+        return root.data;
+    }
+    public static void printPreOrder(Node root) {
+        if (root == null) return ;
+        System.out.print(root.data + " ");
+        printPreOrder(root.right);
+        printPreOrder(root.left);
     }
 
-    public static void main(String[] args) {
 
-        //       1
-        //      / \
-        //     2   3
-        //    / \ / \
-        //   4  5 6  7
+    public static void main(String[] args) {
 
         Node root = new Node(1);
 
@@ -64,6 +41,10 @@ public  class test {
         root.right.left = new Node(6);
         root.right.right = new Node(7);
 
-        topView(root);
+        System.out.print(transform(root));
+
+        System.out.println("Transformed Sum Tree:");
+        printPreOrder(root);
     }
 }
+

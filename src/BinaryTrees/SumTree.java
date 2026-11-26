@@ -55,7 +55,7 @@ public class SumTree {
         root.right.left = new Node(6);
         root.right.right = new Node(7);
 
-        transform(root);
+        System.out.println(transform(root));        // Gives us the cumulative Sum.
 
         System.out.println("Transformed Sum Tree:");
         preorder(root);
