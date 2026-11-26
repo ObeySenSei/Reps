@@ -1,7 +1,5 @@
 package BinarySearchTree;
 
-import org.w3c.dom.Node;
-
 public class test {
     static class TreeNode{
         int data;
@@ -11,30 +9,56 @@ public class test {
             this.data = data;
         }
     }
-    public static boolean check (TreeNode p, TreeNode q){
-        if (p==null || q==null){
-            return p==q;
-        }
-        boolean checkLeft = check(p.left, q.left);
-        boolean checkRight= check(p.right, q.right);
+    public static void InOrder(TreeNode root){
 
-        return checkLeft && checkRight && p.data == q.data;
+        TreeNode current = root;  // We create a current variable of Treenode data type will the value as same as root
+
+        while(current != null){
+
+            if(current.left == null){
+                System.out.println(current.data + " ");
+                current = current.right;
+            }
+            else {
+                TreeNode predecessor = current.left;
+
+                while(predecessor.right != null && predecessor.right!= current){
+                    predecessor = predecessor.right;            // Find the predecessor
+                }
+                if (predecessor.right == null){
+                    predecessor.right = current;                // Establish the connection
+                    current = current.left;
+                }
+                else {
+                    predecessor.right = null;
+                    current = current.left;
+                }
+            }
+
+        }
     }
+
 
 
     public static void main(String[] args) {
 
-        // First tree
-        TreeNode p = new TreeNode(1);
-        p.left = new TreeNode(2);
-        p.right = new TreeNode(3);
+        // Creating our binary tree
+        //
+        //          1
+        //         / \
+        //        2   3
+        //       / \
+        //      4   5
+
+        TreeNode root = new TreeNode(1);
+
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(5);
 
 
-        TreeNode q = new TreeNode(1);
-        q.left = new TreeNode(2);
-        q.right = new TreeNode(4);
-
-        System.out.println("Are both trees identical? " + check(p, q));
+        System.out.println("Morris Inorder Traversal:");
     }
-
 }

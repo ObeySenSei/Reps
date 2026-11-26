@@ -24,21 +24,25 @@ public class IdenticalSubTree {
     // Check whether subRoot exists inside root
     public static boolean isSubtree(TreeNode root, TreeNode subRoot) {
 
-        if (subRoot == null) {        // An empty tree is always a subtree
+        if (subRoot == null) {        // An empty tree is always a subtree of another tree with Nodes
             return true;
         }
 
-        if (root == null) {          // A non-empty tree cannot exist inside an empty tree
+        if (root == null) {          // If the root itself is empty then subroot cannot exist inside it.
             return false;
         }
 
         /// Check whether the entire tree starting from the current root node is identical to subRoot.
-        if (isIdentical(root, subRoot)) {
-            return true;
-        }
+        return isIdentical(root, subRoot) ||
+                isSubtree(root.left, subRoot) ||
+                isSubtree(root.right, subRoot);
 
-        // Search in left and right subtrees
-        return isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot);
+/**
+        - First, check whether the current tree is identical to subRoot.
+        - If not, search the left subtree.
+        - If not found, search the right subtree.
+          If the current node doesn't match, recursively search for subRoot in either the left or right subtree   */
+
     }
 
     public static void main(String[] args) {
@@ -90,6 +94,33 @@ public class IdenticalSubTree {
  4. Now it compares nodes 2 and 2.
  5. isSameTree() recursively compares their left and right children.
  6. Both structures and all corresponding values match.
+
+
+           1
+         /  \
+       2     3
+     /        \
+   4           5
+
+ return isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot);
+ This line means: If the current node doesn't match, recursively search for subRoot in either the left or right subtree.
+
+ We start at node 1.
+ - isIdentical(1, 2) → false.
+ - Search left: isSubtree(2, 2) → true.
+ - Because the left side is true, the OR expression is already satisfied.
+
+
+
+ return isIdentical(root, subRoot) ||
+ isSubtree(root.left, subRoot) ||
+ isSubtree(root.right, subRoot);
+
+ Why does this work?
+ - First, check whether the current tree is identical to subRoot.
+ - If not, search the left subtree.
+ - If not found, search the right subtree.
+ Because || uses short-circuit evaluation, Java stops as soon as one condition returns true.
 
 
  */

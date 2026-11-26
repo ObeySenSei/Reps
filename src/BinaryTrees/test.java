@@ -1,72 +1,69 @@
 package BinaryTrees;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.TreeMap;
 
-public class test {
+public  class test {
     static class Node {
         int data;
-        Node left ;
-        Node right;      // HERE WE ARE CREATING INSTANCE VARIABLES
+        Node left;
+        Node right;
 
-        Node(int data){
+        Node(int data) {
             this.data = data;
-            this.left = null;
-            this.right = null;
         }
     }
-    static int index = -1;
 
-    public static Node buildTree(int[] preorder){
-        index++;
-        
-        if(preorder[index] == -1){   // If the current element in our preorder array is -1, then
-            return null;
-        }
-        Node root = new Node(preorder[index]);  /// Then store that element
+    public static void topView(Node root) {
+        Queue<Node> q = new LinkedList<>();
+        TreeMap<Integer, Integer> map = new TreeMap<>();
+        HashMap<Node, Integer> hdmap = new HashMap<>();
 
-        root.left = buildTree(preorder);
-        root.right = buildTree(preorder);
-        return root;
-    }
-    public static void inOrder(Node root){
-        if (root==null){
-            return;
+        q.add(root);
+        hdmap.put(root, 0);
+
+        while (!q.isEmpty()){
+            Node current = q.poll();
+            int hd = hdmap.get(current);
+
+            if(!hdmap.containsKey(hd)){
+                map.put(hd, current.data );
+            }
+            if(current.left != null){
+                q.add (current.left);
+                hdmap.put(current.left,hd-1 );
+            }
+            if(current.right != null){
+                q.add (current.right);
+                hdmap.put(current.right,hd + 1);
+            }
+            for(int value : map.values()){
+                System.out.println(value + " ");
+            }
+
         }
-        inOrder(root.left);
-        System.out.print(root.data + " ");
-        inOrder(root.right);
-    }
-    public static void preOrder(Node root){
-        if (root==null){
-            return;
-        }
-        System.out.print(root.data + " ");
-        preOrder(root.left);
-        preOrder(root.right);
-    }
-    public static void postOrder(Node root){
-        if (root==null){
-            return;
-        }
-        postOrder(root.left);
-        postOrder(root.right);
-        System.out.print(root.data + " ");
     }
 
     public static void main(String[] args) {
-        int[] preorder = {1, 2, -1, -1, 3, 4, -1, -1, 5, -1, -1};
-        Node result = buildTree(preorder);
 
-        System.out.println("Binary Tree constructed successfully!");
-        System.out.print("Inorder: ");
-        inOrder(result);
-        System.out.println();
+        //       1
+        //      / \
+        //     2   3
+        //    / \ / \
+        //   4  5 6  7
 
-        System.out.print("PreOder: ");
-        preOrder(result);
-        System.out.println();
+        Node root = new Node(1);
 
-        System.out.print("PostOder: ");
-        postOrder(result);
-        System.out.println();
+        root.left = new Node(2);
+        root.right = new Node(3);
 
+        root.left.left = new Node(4);
+        root.left.right = new Node(5);
+
+        root.right.left = new Node(6);
+        root.right.right = new Node(7);
+
+        topView(root);
     }
 }

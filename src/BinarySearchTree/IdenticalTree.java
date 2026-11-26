@@ -19,7 +19,7 @@ public class IdenticalTree {
         boolean isLeftSame = check(p.left, q.left);       /// Recursively compare left subtrees
         boolean isRightSame = check(p.right, q.right);    /// Recursively compare right subtrees
 
-        return isLeftSame && isRightSame && p.data == q.data;   /// Compare both subtrees and current node values
+        return isLeftSame && isRightSame && p.data == q.data;   /// Compare both subtrees (STRUCTURE OF BOTH LEFT AND RIGHT) and current node values
     }
 
     public static void main(String[] args) {
