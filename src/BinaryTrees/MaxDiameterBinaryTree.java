@@ -1,4 +1,4 @@
-package BinaryTrees;  /// Here we calculate the diameter of each Node element and return the max found
+package BinaryTrees;  /// Calculate height and update diameter in the same traversal → O(N).
 
 public class MaxDiameterBinaryTree {
     static class Node {

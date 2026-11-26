@@ -1,4 +1,4 @@
-package BinaryTrees;
+package BinaryTrees;  // Calculate height separately for every node → O(N²) worst case.
 
 public class MaxDiameterBinaryTreeBruteForce {
     static class Node {
@@ -17,7 +17,7 @@ public class MaxDiameterBinaryTreeBruteForce {
         int leftHt = height(root.left);
         int rightHt = height(root.right);
 
-        return Math.max(leftHt, rightHt) + 1;      ///  Return the max height of the current node from either left or right (that passes through the root). +1 includes itself
+        return Math.max(leftHt, rightHt) + 1;      /// Why +1? Because we are calculating the height of the current node as well.
     }
 
     public static int diameter(Node root) {       /// Calculate diameter
@@ -28,7 +28,8 @@ public class MaxDiameterBinaryTreeBruteForce {
 
         int leftDiam = diameter(root.left);             ///  Diameter that goes through left
         int rightDiam = diameter(root.right);           ///  Diameter that goes through right
-        int currDiam = height(root.left) + height(root.right);   /// We need to calculate the height to get the diameter that passes through the Main Root Node.
+        int currDiam = height(root.left) + height(root.right);
+        /// We need to calculate the height to get the diameter that passes through the Main Root Node. No +1 because Diameter is measured in edges, not nodes.
 
         return Math.max(currDiam, Math.max(leftDiam, rightDiam));
     }
