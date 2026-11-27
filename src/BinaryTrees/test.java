@@ -10,41 +10,37 @@ public  class test {
             this.data = data;
         }
     }
-    public static int transform(Node root){
-        if (root == null) return 0;
+    static int maxSum = Integer.MIN_VALUE;
 
-        int calLeft = transform(root.left);
-        int calRight = transform(root.right);
+    public static int currentSum(Node root){
+        if(root == null) return 0;
 
-        int store = root.data;
-        root.data = store + calLeft + calRight;
-        return root.data;
+        int leftSum = Math.max(0,currentSum(root.left));
+        int rightSum = Math.max(0,currentSum(root.right));
+        int currentPathSum = root.data + leftSum + rightSum;
+
+        maxSum = Math.max(maxSum,currentPathSum);
+        return root.data + Math.max(leftSum,rightSum);   // Return this to the parent node to avoid a Branch.
     }
-    public static void printPreOrder(Node root) {
-        if (root == null) return ;
-        System.out.print(root.data + " ");
-        printPreOrder(root.right);
-        printPreOrder(root.left);
-    }
+    public static int maxPath(Node root){
+        currentSum(root);
+        return maxSum;
 
+    }
 
     public static void main(String[] args) {
-
         Node root = new Node(1);
-
         root.left = new Node(2);
-        root.right = new Node(3);
+        root.right = new Node(5);
+        root.left.left = new Node(3);
+        root.left.right = new Node(4);
+        root.right.right = new Node(6);
 
-        root.left.left = new Node(4);
-        root.left.right = new Node(5);
+        System.out.println("Max Path Sum: " + maxPath(root));
 
-        root.right.left = new Node(6);
-        root.right.right = new Node(7);
 
-        System.out.print(transform(root));
-
-        System.out.println("Transformed Sum Tree:");
-        printPreOrder(root);
     }
 }
+
+
 

@@ -12,8 +12,8 @@ public class MaximumWidthOfBinaryTree {
         }
     }
     static class Pair {
-        Node node;
-        long index;
+        Node node;            // To store actual Nodes   (We need Pair - Node and Index, to calculate future indices of other Nodes)
+        long index;           // To store the index value of that Node
 
         Pair(Node node, long index) {
             this.node = node;
@@ -60,7 +60,7 @@ public class MaximumWidthOfBinaryTree {
                 }
             }
         }
-        return (int) maxWidth;
+        return (int) maxWidth;    // We are converting the long result into an int to match the method's return type.
     }
 
     public static void main(String[] args) {
