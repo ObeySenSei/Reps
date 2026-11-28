@@ -10,7 +10,7 @@ public class LowestCommonAncestorLCA {
         }
     }
 
-    public static Node lowestCommonAncestor(Node root, Node p, Node q) {
+    public static Node lowestCommonAncestor(Node root, Node p, Node q) {     //	Return data type — the method returns a Node object
 
         if (root == null || root == p || root == q) {        /// Base case
             return root;
@@ -20,16 +20,27 @@ public class LowestCommonAncestorLCA {
         Node right = lowestCommonAncestor(root.right, p, q);  /// Search in right subtree
 
         if (left != null && right != null) {        /// If both sides return non-null, current node is LCA
-            return root;
+            return root;                           /// basically only when both subtrees of a parent node, finds and returns p and q value, do we return the parent as an LCA above.
         }
 
-        // Otherwise, return whichever side found a target
+        // Otherwise, return whichever side found a target, and propagate it up the recursion stack.
         if (left != null) {
             return left;
         }
         return right;
-
     }
+    /**
+
+     if (root == null || root == p || root == q) return root;
+
+     "These are my base cases. If the current node is null, we've reached the end of a path.
+     If the current node matches either of the two target nodes, I've found one of them, so I return that node immediately."
+
+     I'm checking whether I've reached a null node or found either target node.
+     If so, I return the current node to propagate the result up the recursion stack.
+
+     Node root Parameter: root node of the tree --- Node p: First target node ---- Node q : Second target node
+     */
 
     public static void main(String[] args) {
 
@@ -61,7 +72,6 @@ public class LowestCommonAncestorLCA {
         // Test Case 1: LCA of 5 and 8
         Node p1 = root.left;
         Node q1 = root.right.right;
-
         Node ans1 = lowestCommonAncestor(root, p1, q1);
 
         System.out.println("LCA of 5 and 8: " + ans1.data);
@@ -83,3 +93,4 @@ public class LowestCommonAncestorLCA {
         System.out.println("LCA of 6 and 4: " + ans4.data);
     }
 }
+
