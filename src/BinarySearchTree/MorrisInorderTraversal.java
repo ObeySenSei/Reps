@@ -1,19 +1,19 @@
 package BinarySearchTree;
 
-class TreeNode {
+class Node {
     int data;
-    TreeNode left;
-    TreeNode right;
+    Node left;
+    Node right;
 
-    TreeNode(int data) {
+    Node(int data) {
         this.data = data;
     }
 }
 
 public class MorrisInorderTraversal {
-    public static void morrisInorder(TreeNode root) {
+    public static void morrisInorder(Node root) {
 
-        TreeNode current = root;  // This creates a reference variable called current that initially points to the root node of our binary tree.
+        Node current = root;  // This creates a reference variable called current that initially points to the root node of our binary tree.
 
         while (current != null) {              // Root node cannot be empty
 
@@ -25,7 +25,7 @@ public class MorrisInorderTraversal {
 
             else {
 
-                TreeNode predecessor = current.left;    // Find the inorder predecessor  (current.left is 2)
+                Node predecessor = current.left;    // Find the inorder predecessor  (current.left is 2)
 
                 while (predecessor.right != null && predecessor.right != current) {
                     // Predecessor is 2 and right of 2 is 5. So 2.right != null and has value 5 and  5 != 1.
@@ -62,13 +62,13 @@ public class MorrisInorderTraversal {
         //       / \
         //      4   5
 
-        TreeNode root = new TreeNode(1);
+        Node root = new Node(1);
 
-        root.left = new TreeNode(2);
-        root.right = new TreeNode(3);
+        root.left = new Node(2);
+        root.right = new Node(3);
 
-        root.left.left = new TreeNode(4);
-        root.left.right = new TreeNode(5);
+        root.left.left = new Node(4);
+        root.left.right = new Node(5);
 
         // Morris Inorder Traversal
         System.out.println("Morris Inorder Traversal:");

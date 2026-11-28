@@ -23,8 +23,7 @@ public class LowestCommonAncestorLCA {
             return root;                           /// basically only when both subtrees of a parent node, finds and returns p and q value, do we return the parent as an LCA above.
         }
 
-        // Otherwise, return whichever side found a target, and propagate it up the recursion stack.
-        if (left != null) {
+        if (left != null) {         // Otherwise, return whichever side found a target, and propagate it up the recursion stack.
             return left;
         }
         return right;
